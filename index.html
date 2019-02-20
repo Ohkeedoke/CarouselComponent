@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link href="style.css" rel="stylesheet"/>
+    <title>Carousel</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+        <div id="container">
+            <div class="box" v-for="item in items" @click=center(item)>{{ item }}</div>
+        </div>
+        <div class="buttonBox" id="left" @click="left()">TURN LEFT</div>
+        <div class="buttonBox" id="right" @click="right()">TURN RIGHT</div>
+        <div class="buttonBox" id="color" @click="setColor()">CHANGE COLORS</div>
+        <div id="perspective">
+            <p>Vertical Perspective:</p>
+            <input @change="right()" type="range" step="0.05" min="0" max="0.5" v-model="perspective">
+        </div>
+        <div id="radius">
+                <p>Radius:</p>
+                <input @change="right()" type="range" step="5" min="100" max="300" v-model="radius">
+        </div>
+        <div id="backgroundScale">
+                <p>backgroundScale:</p>
+                <input @change="right()" type="range" step="0.1" min="0.8" max="1.5" v-model="backgroundScale">
+        </div>
+        <div class="buttonBox" id="addElement" @click="addElement()">Add Card</div>
+        <div class="buttonBox" id="removeElement" @click="removeElement()">Remove Card</div>
+
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
